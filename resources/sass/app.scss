@@ -1,0 +1,13 @@
+/* icon font path, required */
+$--font-path: 'font/';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
