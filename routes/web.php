@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::resource('attach_file', 'UploadFileController') ;
 
+
 Route::group(['middleware' => 'auth'], function() {
 
+    Route::resource('AksiUser', 'UserController') ;
+    Route::resource('AksiRuangan', 'RuanganController') ;
+    Route::resource('AksiDepartment', 'DepartmentController') ;
+    Route::resource('AksiKendaraan', 'KendaraanController') ;
     Route::resource('AksiKendaraanDinas', 'KendaraanDinasController') ;
 
     Route::view('/{app?}', 'home')->where('app', '.*');

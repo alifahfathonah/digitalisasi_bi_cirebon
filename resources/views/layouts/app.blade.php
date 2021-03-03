@@ -21,16 +21,15 @@
 <body style="background: #005496">
     @isset(Auth::user()->id)
         <script type="text/javascript">
-            const BASE_URL = '{{url("/#/")}}/';
+            const BASE_URL = '{{url("/")}}';
             const AUTH_LOGIN_ID =  {{ Auth::user()->id }} ;
             const AUTH_USER_NAME = '{{ Auth::user()->username }}' ;
             const AUTH_NAME = '{{ Auth::user()->name }}' ;
+            const APP_BASE = '{{ env('APP_BASE') }}'
         </script>
     @endisset
 
-    <main class="py-4">
-      @yield('content')
-    </main>
+    @yield('content')
 
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf

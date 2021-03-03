@@ -11,18 +11,20 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        if($request->session()->exists('user')){
+            $data = 1 ;
+        }else{
+            $data = 0  ;
+        }
+
+        return view('home', ['data'=> $data]);
     }
 }

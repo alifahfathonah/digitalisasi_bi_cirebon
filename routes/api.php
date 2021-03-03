@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('AksiTamu/{id}', 'TamuNonAuthController@show') ;
+Route::post('AksiTamu/cekDataTamu', 'TamuNonAuthController@cekDataTamu') ;
+Route::post('AksiTamu', 'TamuNonAuthController@store') ;
+Route::get('AksiTamu/datatamu/{id}', 'TamuNonAuthController@datatamu') ;
+
+Route::get('/{app?}', 'TamuNonAuthController@index')->where('app', '.*');
